@@ -18,4 +18,15 @@
 -Tree Shaking
 -Different dev and prod builds
 
-
+#Food Ordering App
+/****
+ * Header
+ *  -Nav Items
+ *  -Logo
+ * Body
+ *   -Search
+ *   -Card Container
+ * Footer
+ *    -Copyright
+ *    -Social Links
+ */
