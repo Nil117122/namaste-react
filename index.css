@@ -37,3 +37,20 @@
 .filter-btn{
     margin: 10px;
 }
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.shimmer-card{
+    margin:20px;
+    width: 200px;
+    height: 400px;
+    background-color: antiquewhite;
+}
+.loginbutton{
+    margin: 0px 20px;
+    cursor: pointer;
+}
+.filter{
+    display: flex;
+}
