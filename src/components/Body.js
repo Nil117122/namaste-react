@@ -18,9 +18,9 @@ const Body = () => {
    
     
     setListOfRestrurent(
-      res.data.cards[1].card.card.gridElements.infoWithStyle.restaurants
+      res?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-    setFilteredRestrurent(res.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+    setFilteredRestrurent(res?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     
   };
 
