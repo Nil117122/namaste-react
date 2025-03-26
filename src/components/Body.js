@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import RestrurentCard from "./RestrurentCard";
 import Shimmer from "./Shimmer";
 import { useState, useEffect } from "react";
+import useOnlineStatus from "../utils/useOnlineStatus";
+
 const Body = () => {
   const [listOfRestrurent, setListOfRestrurent] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -24,7 +26,9 @@ const Body = () => {
     setFilteredRestrurent(res?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     
   };
-
+  const onlineStatus = useOnlineStatus();
+  
+   if(onlineStatus === false) return <h1>You're currently offline,Please check your internet connection</h1>
 
   return listOfRestrurent.length === 0 ? (
     <Shimmer />
@@ -54,7 +58,7 @@ const Body = () => {
             const filteredList = listOfRestrurent.filter(
               (res) => res.info.avgRating >= 4.5
             );
-            setListOfRestrurent(filteredList);
+            setFilteredRestrurent(filteredList);
           }}
         >
           Top Rated Restrurent
