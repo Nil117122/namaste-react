@@ -9,6 +9,9 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [filteredRestrurent, setFilteredRestrurent] = useState([]);
 
+  console.log("render", listOfRestrurent);
+  
+
   useEffect(() => {
     fetchApi();
   }, []);
@@ -34,17 +37,18 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="flex items-center">
+        <div className="search m-2 p-1">
           <input
            type="text"
-           className="search-in" 
+           className="border border-solid border-black" 
            value={searchText}
            onChange={(e) =>{
             setSearchText(e.target.value);
           }}
            />
           <button 
+          className="bg-green-300 px-2 py-1 m-2 rounded-lg"
           onClick={()=>{
             const filteredRestrurent = listOfRestrurent.filter((res)=>res.info.name.toLowerCase().includes(searchText.toLowerCase()));
             console.log(filteredRestrurent);
@@ -52,8 +56,9 @@ const Body = () => {
           }}
           >Search</button>
         </div>
+        <div className="m-1 p-1 flex items-center">
         <button
-          className="filter-btn"
+          className="bg-orange-300 px-2 py-1 m-2 rounded-lg"
           onClick={() => {
             const filteredList = listOfRestrurent.filter(
               (res) => res.info.avgRating >= 4.5
@@ -63,8 +68,9 @@ const Body = () => {
         >
           Top Rated Restrurent
         </button>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {filteredRestrurent.map((restrurent) => (
           <Link
             to={"/restaurants/"+restrurent.info.id}
